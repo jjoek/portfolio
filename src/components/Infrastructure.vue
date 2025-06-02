@@ -30,12 +30,21 @@ export default {
   data() {
     return {
       podInfo: {
-        podName: process.env.POD_NAME || 'Not available',
-        namespace: process.env.POD_NAMESPACE || 'Not available',
-        podIP: process.env.POD_IP || 'Not available',
-        nodeName: process.env.NODE_NAME || 'Not available'
+        podName: import.meta.env.VITE_POD_NAME || 'Not available',
+        namespace: import.meta.env.VITE_POD_NAMESPACE || 'Not available',
+        podIP: import.meta.env.VITE_POD_IP || 'Not available',
+        nodeName: import.meta.env.VITE_NODE_NAME || 'Not available'
       }
     }
+  },
+  mounted() {
+    // Log the environment variables to help debug
+    console.log('Environment Variables:', {
+      podName: import.meta.env.VITE_POD_NAME,
+      namespace: import.meta.env.VITE_POD_NAMESPACE,
+      podIP: import.meta.env.VITE_POD_IP,
+      nodeName: import.meta.env.VITE_NODE_NAME
+    })
   }
 }
 </script>

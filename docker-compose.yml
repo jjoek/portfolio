@@ -13,6 +13,10 @@ services:
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true  # Enables better hot-reload on some systems
+      - VITE_POD_NAME=local-dev-pod
+      - VITE_POD_NAMESPACE=default
+      - VITE_POD_IP=127.0.0.1
+      - VITE_NODE_NAME=local-node
     restart: unless-stopped
 
   # Production service
