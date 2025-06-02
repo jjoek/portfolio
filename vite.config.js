@@ -7,5 +7,11 @@ export default defineConfig({
     alias: {
       '@': '/src'
     }
+  },
+  define: {
+    'process.env.POD_NAME': JSON.stringify(process.env.POD_NAME),
+    'process.env.POD_NAMESPACE': JSON.stringify(process.env.POD_NAMESPACE),
+    'process.env.POD_IP': JSON.stringify(process.env.POD_IP),
+    'process.env.NODE_NAME': JSON.stringify(process.env.NODE_NAME)
   }
 })
