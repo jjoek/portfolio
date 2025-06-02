@@ -40,15 +40,19 @@ export default {
   methods: {
     async fetchPodInfo() {
       try {
-        const name = await fetch('/etc/podinfo/name').then(res => res.text());
-        const namespace = await fetch('/etc/podinfo/namespace').then(res => res.text());
-        const ip = await fetch('/etc/podinfo/ip').then(res => res.text());
-        const node = await fetch('/etc/podinfo/node').then(res => res.text());
+        const name = await fetch('/podinfo/name').then(res => res.text());
+        const namespace = await fetch('/podinfo/namespace').then(res => res.text());
+        const podIP = await fetch('/podinfo_runtime/podinfo.json')
+            .then(res => res.json())
+            .then(data => data.pod_ip);
+
+        // const ip = await fetch('/podinfo/ip').then(res => res.text());
+        const node = 'Not available'; //await fetch('/podinfo/node').then(res => res.text());
 
         this.podInfo = {
           podName: name.trim(),
           namespace: namespace.trim(),
-          podIP: ip.trim(),
+          podIP: podIP.trim(),
           nodeName: node.trim()
         };
         console.log("Environment Set Variables JJOEK: " + Date.now() +  JSON.stringify(this.podInfo));

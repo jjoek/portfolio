@@ -19,6 +19,7 @@
                 <a href="#skills" class="nav-link" :class="{ 'active': activeSection === 'skills' }">Skills</a>
                 <a href="#experience" class="nav-link" :class="{ 'active': activeSection === 'experience' }">Experience</a>
                 <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }">Contact</a>
+                <a href="/infrastructure" class="nav-link" :class="{ 'active': activeSection === 'Infrastructure' }">Contact</a>
               </div>
             </div>
     
@@ -426,7 +427,7 @@
     const typewriterTexts = [
       'Senior Backend Engineer',
       'DevOps Specialist', 
-      'AWS Certified Professional',
+      'AWS Certified DevOps Professional',
       'Infrastructure Automation Expert'
     ]
     

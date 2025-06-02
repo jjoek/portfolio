@@ -18,6 +18,10 @@ RUN npm run build
 # Production stage
 FROM nginx:stable-alpine AS production-stage
 
+RUN mkdir -p /usr/share/nginx/html/podinfo_runtime
+
+RUN echo "{\"pod_ip\": \"$POD_IP\"}" > /usr/share/nginx/html/podinfo_runtime/podinfo.json
+
 # Copy built assets from build-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
