@@ -30,21 +30,35 @@ export default {
   data() {
     return {
       podInfo: {
-        podName: import.meta.env.VITE_POD_NAME || 'Not available',
-        namespace: import.meta.env.VITE_POD_NAMESPACE || 'Not available',
-        podIP: import.meta.env.VITE_POD_IP || 'Not available',
-        nodeName: import.meta.env.VITE_NODE_NAME || 'Not available'
+        podName: 'Not available',
+        namespace: 'Not available',
+        podIP: 'Not available',
+        nodeName: 'Not available'
       }
     }
   },
-  mounted() {
-    // Log the environment variables to help debug
-    console.log('Environment Variables:', {
-      podName: import.meta.env.VITE_POD_NAME,
-      namespace: import.meta.env.VITE_POD_NAMESPACE,
-      podIP: import.meta.env.VITE_POD_IP,
-      nodeName: import.meta.env.VITE_NODE_NAME
-    })
+  methods: {
+    async fetchPodInfo() {
+      try {
+        const name = await fetch('/etc/podinfo/name').then(res => res.text());
+        const namespace = await fetch('/etc/podinfo/namespace').then(res => res.text());
+        const ip = await fetch('/etc/podinfo/ip').then(res => res.text());
+        const node = await fetch('/etc/podinfo/node').then(res => res.text());
+
+        this.podInfo = {
+          podName: name.trim(),
+          namespace: namespace.trim(),
+          podIP: ip.trim(),
+          nodeName: node.trim()
+        };
+        console.log("Environment Set Variables JJOEK: " + Date.now() +  JSON.stringify(this.podInfo));
+      } catch (error) {
+        console.error('Error fetching pod info:', error);
+      }
+    }
+  },
+  async mounted() {
+    await this.fetchPodInfo();
   }
 }
 </script>
