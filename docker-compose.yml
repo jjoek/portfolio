@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+  # Development service with hot-reload
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Enables better hot-reload on some systems
+    restart: unless-stopped
+
+  # Production service
   portfolio:
     build:
       context: .

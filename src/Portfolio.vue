@@ -68,9 +68,10 @@
             <div class="mb-8 animate-fade-in-up" style="animation-delay: 0.2s">
               <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 hover:scale-110 transition-transform duration-300">
                 <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
-                  <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <img src="https://media.licdn.com/dms/image/v2/C4D03AQGxi3fFNgOE9g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1657398955790?e=1754524800&v=beta&t=xObI29KRcNu4g9HqZyaT6TxIZdJRRH3moPWYl-JFJlE" alt="John Irungu" class="w-full h-full rounded-full">
+                  <!-- <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                  </svg>
+                  </svg> -->
                 </div>
               </div>
             </div>
