@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-dev
+  labels:
+    app: portfolio
+    env: dev
+spec:
+  type: NodePort
+  ports:
+  - port: 5173
+    targetPort: 5173
+    nodePort: 30173
+  selector:
+    app: portfolio
+    env: dev 

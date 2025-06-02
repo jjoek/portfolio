@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-dev
+  labels:
+    app: portfolio
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portfolio
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: portfolio
+        env: dev
+    spec:
+      containers:
+      - name: portfolio-dev
+        image: portfolio-dev
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5173
+        env:
+        - name: NODE_ENV
+          value: "development"
+        - name: CHOKIDAR_USEPOLLING
+          value: "true"
+        volumeMounts:
+        - name: source-code
+          mountPath: /app
+        - name: node-modules
+          mountPath: /app/node_modules
+      volumes:
+      - name: source-code
+        hostPath:
+          path: /Users/guestuser/dev/jjoek/portfolio
+          type: Directory
+      - name: node-modules
+        emptyDir: {} 
