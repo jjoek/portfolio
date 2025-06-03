@@ -455,9 +455,9 @@
     
     const stats = [
       { value: `${calculateYearsOfExperience()}+`, label: 'Years Experience', color: 'text-blue-600' },
-      { value: '50+', label: 'Projects Delivered', color: 'text-green-600' },
-      { value: '3', label: 'AWS Certifications', color: 'text-purple-600' },
-      { value: '10+', label: 'Technologies', color: 'text-orange-600' }
+      { value: '10+', label: 'Projects Delivered', color: 'text-green-600' },
+      { value: '1', label: 'AWS Certifications', color: 'text-purple-600' },
+      { value: '20+', label: 'Technologies', color: 'text-orange-600' }
     ]
     
     const skills = [
