@@ -12,7 +12,16 @@ import Navigation from './components/Navigation.vue'
 <style>
 #app {
   min-height: 100vh;
-  background-color: #1a1a1a;
-  color: #ffffff;
+}
+
+/* Global styles */
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
 }
 </style>

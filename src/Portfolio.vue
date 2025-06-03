@@ -954,4 +954,9 @@
         @apply w-full justify-center;
       }
     }
+    
+    .dark-theme {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
     </style>
