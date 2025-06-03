@@ -445,8 +445,16 @@
       'Lead engineering teams and mentor developers'
     ]
     
+    const calculateYearsOfExperience = () => {
+      const startDate = new Date(2017, 6) // July 2017 (month is 0-based)
+      const currentDate = new Date()
+      const years = currentDate.getFullYear() - startDate.getFullYear()
+      const months = currentDate.getMonth() - startDate.getMonth()
+      return months < 0 ? years - 1 : years
+    }
+    
     const stats = [
-      { value: '6+', label: 'Years Experience', color: 'text-blue-600' },
+      { value: `${calculateYearsOfExperience()}+`, label: 'Years Experience', color: 'text-blue-600' },
       { value: '50+', label: 'Projects Delivered', color: 'text-green-600' },
       { value: '3', label: 'AWS Certifications', color: 'text-purple-600' },
       { value: '10+', label: 'Technologies', color: 'text-orange-600' }
