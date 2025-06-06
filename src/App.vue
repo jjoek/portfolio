@@ -1,13 +1,13 @@
 <template>
-  <div id="app">
+    <div id="app">
     <Navigation />
     <router-view></router-view>
-  </div>
-</template>
-
-<script setup>
+    </div>
+  </template>
+  
+  <script setup>
 import Navigation from './components/Navigation.vue'
-</script>
+  </script>
 
 <style>
 #app {
