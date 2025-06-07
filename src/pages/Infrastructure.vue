@@ -1,25 +1,25 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-24">
+  <main class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Debug Info (only shown when there's an error) -->
-      <div v-if="lastError" class="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+      <div v-if="lastError" role="alert" aria-live="polite" class="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
         <p class="text-red-600">{{ lastError }}</p>
       </div>
 
-      <div class="text-center mb-16 animate-on-scroll">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Infrastructure Details</h2>
+      <header class="text-center mb-16 animate-on-scroll">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Infrastructure Details</h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
           Real-time information about the Kubernetes pod serving this application
         </p>
-      </div>
+      </header>
 
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Pod Information Card -->
-        <div class="animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="gradient-header px-6 py-4">
-            <h3 class="text-xl font-semibold text-white mb-1">Kubernetes Pod Information</h3>
+        <article class="animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <header class="gradient-header px-6 py-4">
+            <h2 class="text-xl font-semibold text-white mb-1">Kubernetes Pod Information</h2>
             <p class="text-blue-100 text-sm">Current pod serving your request</p>
-          </div>
+          </header>
           <div class="p-6 space-y-4">
             <div class="flex items-center border-b border-gray-100 pb-4">
               <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
@@ -66,7 +66,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- Service Information Card -->
         <div class="animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -128,11 +128,12 @@
         Last updated: {{ new Date().toLocaleString() }}
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useHead } from '@unhead/vue'
 
 const podInfo = ref({
   podName: 'Not available',
@@ -248,6 +249,25 @@ onMounted(async () => {
 onUnmounted(() => {
   if (interval) clearInterval(interval)
   window.removeEventListener('scroll', handleScroll)
+})
+
+// SEO meta tags
+useHead({
+  title: 'Infrastructure Details - John Irungu',
+  meta: [
+    {
+      name: 'description',
+      content: 'Explore the real-time Kubernetes infrastructure powering this portfolio website. View pod details and infrastructure metrics.'
+    },
+    {
+      property: 'og:title',
+      content: 'Infrastructure Details - John Irungu'
+    },
+    {
+      property: 'og:description',
+      content: 'Explore the real-time Kubernetes infrastructure powering this portfolio website. View pod details and infrastructure metrics.'
+    }
+  ]
 })
 </script>
 

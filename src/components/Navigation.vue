@@ -12,7 +12,20 @@
         <!-- Desktop Navigation -->
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-8">
-            <router-link to="/" class="nav-link" :class="{ 'active': $route.path === '/' }">Home</router-link>
+            <template v-if="$route.path === '/'">
+              <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }">Home</a>
+              <a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }">About</a>
+              <a href="#skills" class="nav-link" :class="{ 'active': activeSection === 'skills' }">Skills</a>
+              <a href="#experience" class="nav-link" :class="{ 'active': activeSection === 'experience' }">Experience</a>
+              <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }">Contact</a>
+            </template>
+            <template v-else>
+              <router-link to="/#home" class="nav-link">Home</router-link>
+              <router-link to="/#about" class="nav-link">About</router-link>
+              <router-link to="/#skills" class="nav-link">Skills</router-link>
+              <router-link to="/#experience" class="nav-link">Experience</router-link>
+              <router-link to="/#contact" class="nav-link">Contact</router-link>
+            </template>
             <router-link to="/infrastructure" class="nav-link" :class="{ 'active': $route.path === '/infrastructure' }">Infrastructure</router-link>
           </div>
         </div>
@@ -32,22 +45,39 @@
       </div>
 
       <!-- Mobile Navigation -->
-      <transition name="mobile-menu">
-        <div v-if="mobileMenuOpen" class="md:hidden">
-          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-            <router-link to="/" @click="closeMobileMenu" class="mobile-nav-link">Home</router-link>
-            <router-link to="/infrastructure" @click="closeMobileMenu" class="mobile-nav-link">Infrastructure</router-link>
-          </div>
+      <div 
+        v-show="mobileMenuOpen" 
+        class="md:hidden"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <template v-if="$route.path === '/'">
+            <a href="#home" class="mobile-nav-link" :class="{ 'active': activeSection === 'home' }" @click="closeMobileMenu">Home</a>
+            <a href="#about" class="mobile-nav-link" :class="{ 'active': activeSection === 'about' }" @click="closeMobileMenu">About</a>
+            <a href="#skills" class="mobile-nav-link" :class="{ 'active': activeSection === 'skills' }" @click="closeMobileMenu">Skills</a>
+            <a href="#experience" class="mobile-nav-link" :class="{ 'active': activeSection === 'experience' }" @click="closeMobileMenu">Experience</a>
+            <a href="#contact" class="mobile-nav-link" :class="{ 'active': activeSection === 'contact' }" @click="closeMobileMenu">Contact</a>
+          </template>
+          <template v-else>
+            <router-link to="/#home" class="mobile-nav-link" @click="closeMobileMenu">Home</router-link>
+            <router-link to="/#about" class="mobile-nav-link" @click="closeMobileMenu">About</router-link>
+            <router-link to="/#skills" class="mobile-nav-link" @click="closeMobileMenu">Skills</router-link>
+            <router-link to="/#experience" class="mobile-nav-link" @click="closeMobileMenu">Experience</router-link>
+            <router-link to="/#contact" class="mobile-nav-link" @click="closeMobileMenu">Contact</router-link>
+          </template>
+          <router-link to="/infrastructure" class="mobile-nav-link" :class="{ 'active': $route.path === '/infrastructure' }" @click="closeMobileMenu">Infrastructure</router-link>
         </div>
-      </transition>
+      </div>
     </div>
   </nav>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const mobileMenuOpen = ref(false)
+const activeSection = ref('home')
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
@@ -56,40 +86,58 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false
 }
+
+const handleScroll = () => {
+  if (route.path !== '/') return
+
+  const sections = ['home', 'about', 'skills', 'experience', 'contact']
+  const scrollPos = window.scrollY + 100
+
+  sections.forEach(section => {
+    const element = document.getElementById(section)
+    if (element) {
+      const offsetTop = element.offsetTop
+      const height = element.offsetHeight
+      
+      if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
+        activeSection.value = section
+      }
+    }
+  })
+}
+
+// Reset active section when route changes
+watch(() => route.path, (newPath) => {
+  if (newPath === '/') {
+    handleScroll()
+  }
+})
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Initial call
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped>
 .nav-link {
-  @apply text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 relative;
+  @apply px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200;
 }
 
 .nav-link.active {
   @apply text-blue-600;
 }
 
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 24px;
-  height: 2px;
-  background: #667eea;
-  border-radius: 2px;
-}
-
 .mobile-nav-link {
-  @apply text-gray-600 hover:text-blue-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200;
+  @apply block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors duration-200;
 }
 
-.mobile-menu-enter-active, .mobile-menu-leave-active {
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-enter-from, .mobile-menu-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
+.mobile-nav-link.active {
+  @apply bg-blue-50 text-blue-600;
 }
 
 .gradient-text {

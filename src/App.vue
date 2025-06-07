@@ -1,27 +1,14 @@
 <template>
-    <div id="app">
+  <div class="min-h-screen bg-gray-50">
     <Navigation />
     <router-view></router-view>
-    </div>
-  </template>
-  
-  <script setup>
+  </div>
+</template>
+
+<script setup>
 import Navigation from './components/Navigation.vue'
-  </script>
+</script>
 
 <style>
-#app {
-  min-height: 100vh;
-}
-
-/* Global styles */
-:root {
-  color-scheme: light;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-}
+@import './styles/main.css';
 </style>

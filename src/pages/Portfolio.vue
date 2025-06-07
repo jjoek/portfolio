@@ -1,59 +1,61 @@
 <template>
-    <div id="app" class="min-h-screen bg-gray-50">
+    <main id="app" class="min-h-screen bg-gray-50">
       <!-- Navigation -->
-      <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-              <a href="#home" class="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-200">
-                John Irungu
-              </a>
-            </div>
-    
-            <!-- Desktop Navigation -->
-            <div class="hidden md:block">
-              <div class="ml-10 flex items-baseline space-x-8">
-                <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }">Home</a>
-                <a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }">About</a>
-                <a href="#skills" class="nav-link" :class="{ 'active': activeSection === 'skills' }">Skills</a>
-                <a href="#experience" class="nav-link" :class="{ 'active': activeSection === 'experience' }">Experience</a>
-                <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }">Contact</a>
-                <a href="/infrastructure" class="nav-link" :class="{ 'active': activeSection === 'Infrastructure' }">Infrastructure</a>
+      <header>
+        <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 transition-all duration-300">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+              <!-- Logo -->
+              <div class="flex-shrink-0">
+                <a href="#home" class="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-200">
+                  John Irungu
+                </a>
+              </div>
+      
+              <!-- Desktop Navigation -->
+              <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-8">
+                  <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }">Home</a>
+                  <a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }">About</a>
+                  <a href="#skills" class="nav-link" :class="{ 'active': activeSection === 'skills' }">Skills</a>
+                  <a href="#experience" class="nav-link" :class="{ 'active': activeSection === 'experience' }">Experience</a>
+                  <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }">Contact</a>
+                  <a href="/infrastructure" class="nav-link" :class="{ 'active': activeSection === 'Infrastructure' }">Infrastructure</a>
+                </div>
+              </div>
+      
+              <!-- Mobile menu button -->
+              <div class="md:hidden">
+                <button 
+                  @click="toggleMobileMenu"
+                  class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                >
+                  <svg class="h-6 w-6 transform transition-transform duration-200" :class="{ 'rotate-90': mobileMenuOpen }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
             </div>
-    
-            <!-- Mobile menu button -->
-            <div class="md:hidden">
-              <button 
-                @click="toggleMobileMenu"
-                class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
-              >
-                <svg class="h-6 w-6 transform transition-transform duration-200" :class="{ 'rotate-90': mobileMenuOpen }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                  <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+      
+            <!-- Mobile Navigation -->
+            <transition name="mobile-menu">
+              <div v-if="mobileMenuOpen" class="md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+                  <a href="#home" @click="closeMobileMenu" class="mobile-nav-link">Home</a>
+                  <a href="#about" @click="closeMobileMenu" class="mobile-nav-link">About</a>
+                  <a href="#skills" @click="closeMobileMenu" class="mobile-nav-link">Skills</a>
+                  <a href="#experience" @click="closeMobileMenu" class="mobile-nav-link">Experience</a>
+                  <a href="#contact" @click="closeMobileMenu" class="mobile-nav-link">Contact</a>
+                </div>
+              </div>
+            </transition>
           </div>
-    
-          <!-- Mobile Navigation -->
-          <transition name="mobile-menu">
-            <div v-if="mobileMenuOpen" class="md:hidden">
-              <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-                <a href="#home" @click="closeMobileMenu" class="mobile-nav-link">Home</a>
-                <a href="#about" @click="closeMobileMenu" class="mobile-nav-link">About</a>
-                <a href="#skills" @click="closeMobileMenu" class="mobile-nav-link">Skills</a>
-                <a href="#experience" @click="closeMobileMenu" class="mobile-nav-link">Experience</a>
-                <a href="#contact" @click="closeMobileMenu" class="mobile-nav-link">Contact</a>
-              </div>
-            </div>
-          </transition>
-        </div>
-      </nav>
+        </nav>
+      </header>
     
       <!-- Hero Section -->
-      <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16 relative overflow-hidden">
+      <section id="home" role="banner" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16 relative overflow-hidden">
         <!-- Animated background elements -->
         <div class="absolute inset-0 overflow-hidden">
           <div class="floating-shapes">
@@ -81,6 +83,11 @@
             <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up" style="animation-delay: 0.4s">
               Hi, I'm <span class="gradient-text typing-animation">John Irungu</span>
             </h1>
+
+            <!-- Personal Introduction -->
+            <p class="text-xl md:text-2xl text-gray-600 mb-4 animate-fade-in-up" style="animation-delay: 0.5s">
+              but online I go by <span class="gradient-text font-semibold">jjoek</span>.
+            </p>
     
             <!-- Subtitle with typewriter effect -->
             <div class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.6s">
@@ -97,16 +104,16 @@
     
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up" style="animation-delay: 1s">
-              <a href="#contact" class="btn-primary group">
+              <button @click="showCv" class="btn-primary group">
+                View Resume
+                <svg class="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </button>
+              <a href="#contact" class="btn-secondary group">
                 Get In Touch
                 <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <a href="#experience" class="btn-secondary group">
-                View My Work
-                <svg class="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </a>
             </div>
@@ -132,7 +139,7 @@
       </section>
     
       <!-- About Section -->
-      <section id="about" class="py-20 bg-white">
+      <section id="about" role="region" aria-label="About Me" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-on-scroll">About Me</h2>
@@ -202,7 +209,7 @@
       </section>
     
       <!-- Skills Section -->
-      <section id="skills" class="py-20 bg-gray-50">
+      <section id="skills" role="region" aria-label="Technical Skills" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-on-scroll">Technical Skills</h2>
@@ -244,7 +251,7 @@
       </section>
     
       <!-- Experience Section -->
-      <section id="experience" class="py-20 bg-white">
+      <section id="experience" role="region" aria-label="Work Experience" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-on-scroll">Work Experience</h2>
@@ -287,7 +294,7 @@
       </section>
     
       <!-- Contact Section -->
-      <section id="contact" class="py-20 bg-gray-50">
+      <section id="contact" role="region" aria-label="Contact Information" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-on-scroll">Get In Touch</h2>
@@ -413,11 +420,18 @@
           </div>
         </div>
       </footer>
-    </div>
+    </main>
+    <PdfViewer 
+      v-if="isCvOpen"
+      :is-open="isCvOpen"
+      :pdf-url="cvUrl"
+      @close="closeCv"
+    />
     </template>
     
     <script setup>
     import { ref, onMounted, onUnmounted } from 'vue'
+    import PdfViewer from '../components/PdfViewer.vue'
     
     const mobileMenuOpen = ref(false)
     const activeSection = ref('home')
@@ -645,6 +659,9 @@
       { name: 'KCNA & CKA (In Progress)', iconColor: 'text-blue-500' }
     ]
     
+    const isCvOpen = ref(false)
+    const cvUrl = ref('https://jjoek-cv.s3.eu-central-1.amazonaws.com/Updated+Resume+(CV).pdf')
+    
     // Typewriter effect
     const startTypewriter = () => {
       const text = typewriterTexts[typewriterIndex.value]
@@ -711,6 +728,16 @@
           el.classList.add('animate-fade-in-up')
         }
       })
+    }
+    
+    const showCv = () => {
+      console.log('Opening CV with URL:', cvUrl.value)
+      isCvOpen.value = true
+    }
+    
+    const closeCv = () => {
+      console.log('Closing CV viewer')
+      isCvOpen.value = false
     }
     
     onMounted(() => {
@@ -878,11 +905,11 @@
     
     /* Buttons */
     .btn-primary {
-      @apply bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 inline-flex items-center;
+      @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200;
     }
     
     .btn-secondary {
-      @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 inline-flex items-center;
+      @apply inline-flex items-center px-6 py-3 border-2 border-blue-600 text-base font-medium rounded-lg text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200;
     }
     
     /* Cards */

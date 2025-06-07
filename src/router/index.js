@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Portfolio from '../Portfolio.vue'
-import Infrastructure from '../components/Infrastructure.vue'
+import Portfolio from '../pages/Portfolio.vue'
+import Infrastructure from '../pages/Infrastructure.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Portfolio',
     component: Portfolio
   },
   {
@@ -17,7 +17,19 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth'
+      }
+    }
+    return { top: 0 }
+  }
 })
 
 export default router 
