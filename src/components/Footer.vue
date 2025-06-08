@@ -68,9 +68,7 @@
             </div>
 
             <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400">
-                    © {{ currentYear }} John Irungu. All rights reserved.
-                </p>
+                <p class="text-gray-400">© {{ currentYear }} John Irungu. All rights reserved.</p>
             </div>
         </div>
     </footer>

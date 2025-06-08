@@ -57,8 +57,8 @@
             <!-- View More Button -->
             <div v-if="hasMoreExperience" class="mt-12 text-center">
                 <button
-                    @click="toggleShowMore"
                     class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 animate-on-scroll"
+                    @click="toggleShowMore"
                 >
                     <span>{{ showAllExperience ? 'Show Less' : 'View More' }}</span>
                     <svg
@@ -108,7 +108,7 @@
             companyColor: 'text-blue-600',
             dateStyle: 'text-blue-600 bg-blue-50',
             achievements: [
-                'Led backend development for Workpay\'s Performance Management System using Laravel',
+                "Led backend development for Workpay's Performance Management System using Laravel",
                 'Core contributor to the Payroll Squad — building scalable APIs for multi-country payroll automation.',
                 'Introduced GitLab CI pipelines and optimized queued job processing with Laravel Horizon.',
                 'Collaborated with DevOps to streamline infrastructure using Docker and Terraform.',

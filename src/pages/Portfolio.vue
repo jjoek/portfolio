@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-    import { ref, onMounted, onUnmounted } from 'vue'
     import About from './About.vue'
     import Skills from './Skills.vue'
     import Experience from './Experience.vue'

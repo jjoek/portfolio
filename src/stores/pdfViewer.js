@@ -4,7 +4,7 @@ const isOpen = ref(false)
 const pdfUrl = ref('')
 
 export const usePdfViewer = () => {
-    const showPdf = (url) => {
+    const showPdf = url => {
         pdfUrl.value = url
         isOpen.value = true
     }
@@ -17,6 +17,6 @@ export const usePdfViewer = () => {
         isOpen,
         pdfUrl,
         showPdf,
-        closePdf
+        closePdf,
     }
-} 
+}

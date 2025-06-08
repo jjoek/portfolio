@@ -7,7 +7,8 @@
                     About Me
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-                    Backend Engineer turned DevOps enthusiast — passionate about scalable systems and clean automation.
+                    Backend Engineer turned DevOps enthusiast — passionate about scalable systems
+                    and clean automation.
                 </p>
             </div>
 
@@ -19,10 +20,16 @@
                             Professional Journey
                         </h3>
                         <p class="text-gray-600 leading-relaxed mb-4">
-                            I’m a Senior Backend Engineer with strong DevOps capabilities, building and maintaining secure, scalable systems across Africa. I’ve worked on payroll, HR, e-commerce, health care and fintech platforms — using Laravel, Node.js, GraphQL, and AWS to ship clean, reliable software.
+                            I’m a Senior Backend Engineer with strong DevOps capabilities, building
+                            and maintaining secure, scalable systems across Africa. I’ve worked on
+                            payroll, HR, e-commerce, health care and fintech platforms — using
+                            Laravel, Node.js, GraphQL, and AWS to ship clean, reliable software.
                         </p>
                         <p class="text-gray-600 leading-relaxed">
-                            I’m KCNA-certified and AWS DevOps Certified, currently pursuing the AWS Solutions Architect certification and exploring the Kubestronaut track by CNCF. I thrive at the intersection of backend engineering, infrastructure automation, and developer empowerment.
+                            I’m KCNA-certified and AWS DevOps Certified, currently pursuing the AWS
+                            Solutions Architect certification and exploring the Kubestronaut track
+                            by CNCF. I thrive at the intersection of backend engineering,
+                            infrastructure automation, and developer empowerment.
                         </p>
                     </div>
 
@@ -99,29 +106,29 @@
 </template>
 
 <script setup>
-const whatIDo = [
-    'Design and build scalable backend systems (Laravel, Node.js)',
-    'Automate infrastructure using Terraform, CloudFormation & Ansible',
-    'Implement and maintain CI/CD pipelines (GitLab CI, GitHub Actions)',
-    'Collaborate across teams and mentor developers in clean architecture',
-]
+    const whatIDo = [
+        'Design and build scalable backend systems (Laravel, Node.js)',
+        'Automate infrastructure using Terraform, CloudFormation & Ansible',
+        'Implement and maintain CI/CD pipelines (GitLab CI, GitHub Actions)',
+        'Collaborate across teams and mentor developers in clean architecture',
+    ]
 
-const calculateYearsOfExperience = () => {
-    const startDate = new Date(2017, 6) // July 2017
-    const currentDate = new Date()
-    const years = currentDate.getFullYear() - startDate.getFullYear()
-    const months = currentDate.getMonth() - startDate.getMonth()
-    return months < 0 ? years - 1 : years
-}
+    const calculateYearsOfExperience = () => {
+        const startDate = new Date(2017, 6) // July 2017
+        const currentDate = new Date()
+        const years = currentDate.getFullYear() - startDate.getFullYear()
+        const months = currentDate.getMonth() - startDate.getMonth()
+        return months < 0 ? years - 1 : years
+    }
 
-const stats = [
-    {
-        value: `${calculateYearsOfExperience()}+`,
-        label: 'Years Experience',
-        color: 'text-blue-600',
-    },
-    { value: '10+', label: 'Projects Delivered', color: 'text-green-600' },
-    { value: '2', label: 'Certifications (AWS & KCNA)', color: 'text-purple-600' },
-    { value: '25+', label: 'Technologies Used', color: 'text-orange-600' },
-]
+    const stats = [
+        {
+            value: `${calculateYearsOfExperience()}+`,
+            label: 'Years Experience',
+            color: 'text-blue-600',
+        },
+        { value: '10+', label: 'Projects Delivered', color: 'text-green-600' },
+        { value: '2', label: 'Certifications (AWS & KCNA)', color: 'text-purple-600' },
+        { value: '25+', label: 'Technologies Used', color: 'text-orange-600' },
+    ]
 </script>
