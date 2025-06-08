@@ -69,13 +69,17 @@
 
             <div class="border-t border-gray-800 mt-8 pt-8 text-center">
                 <p class="text-gray-400">
-                    © 2024 John Irungu. Built with Vue.js and Tailwind CSS. All rights reserved.
+                    © {{ currentYear }} John Irungu. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 </template>
 <script setup>
+    import { computed } from 'vue'
+
+    const currentYear = computed(() => new Date().getFullYear())
+
     const socialLinks = [
         {
             name: 'LinkedIn',

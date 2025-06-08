@@ -7,7 +7,7 @@
                     About Me
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-                    Passionate about building scalable systems and automating infrastructure
+                    Backend Engineer turned DevOps enthusiast — passionate about scalable systems and clean automation.
                 </p>
             </div>
 
@@ -19,16 +19,10 @@
                             Professional Journey
                         </h3>
                         <p class="text-gray-600 leading-relaxed mb-4">
-                            As a Senior Backend Engineer and DevOps specialist, I bring a unique
-                            blend of development expertise and infrastructure automation skills. My
-                            journey spans from IT support to leading engineering teams, giving me a
-                            comprehensive understanding of the entire technology stack.
+                            I’m a Senior Backend Engineer with strong DevOps capabilities, building and maintaining secure, scalable systems across Africa. I’ve worked on payroll, HR, e-commerce, health care and fintech platforms — using Laravel, Node.js, GraphQL, and AWS to ship clean, reliable software.
                         </p>
                         <p class="text-gray-600 leading-relaxed">
-                            Currently pursuing Kubernetes certifications (KCNA, CKA) to deepen my
-                            container orchestration skills, I'm passionate about leveraging
-                            cutting-edge technologies to solve complex problems and streamline
-                            software delivery processes.
+                            I’m KCNA-certified and AWS DevOps Certified, currently pursuing the AWS Solutions Architect certification and exploring the Kubestronaut track by CNCF. I thrive at the intersection of backend engineering, infrastructure automation, and developer empowerment.
                         </p>
                     </div>
 
@@ -90,10 +84,10 @@
                             </div>
                             <div>
                                 <div class="font-medium text-gray-900">
-                                    Bachelor's Degree in Computer Science
+                                    BSc in Computer Science, Second Class Upper
                                 </div>
                                 <div class="text-sm text-gray-600">
-                                    University of Embu (2018-2022)
+                                    University of Embu (2018–2022)
                                 </div>
                             </div>
                         </div>
@@ -103,30 +97,31 @@
         </div>
     </section>
 </template>
+
 <script setup>
-    const whatIDo = [
-        'Design and implement scalable backend architectures',
-        'Automate infrastructure using IaC tools (Terraform, CloudFormation)',
-        'Build and optimize CI/CD pipelines',
-        'Lead engineering teams and mentor developers',
-    ]
+const whatIDo = [
+    'Design and build scalable backend systems (Laravel, Node.js)',
+    'Automate infrastructure using Terraform, CloudFormation & Ansible',
+    'Implement and maintain CI/CD pipelines (GitLab CI, GitHub Actions)',
+    'Collaborate across teams and mentor developers in clean architecture',
+]
 
-    const calculateYearsOfExperience = () => {
-        const startDate = new Date(2017, 6) // July 2017 (month is 0-based)
-        const currentDate = new Date()
-        const years = currentDate.getFullYear() - startDate.getFullYear()
-        const months = currentDate.getMonth() - startDate.getMonth()
-        return months < 0 ? years - 1 : years
-    }
+const calculateYearsOfExperience = () => {
+    const startDate = new Date(2017, 6) // July 2017
+    const currentDate = new Date()
+    const years = currentDate.getFullYear() - startDate.getFullYear()
+    const months = currentDate.getMonth() - startDate.getMonth()
+    return months < 0 ? years - 1 : years
+}
 
-    const stats = [
-        {
-            value: `${calculateYearsOfExperience()}+`,
-            label: 'Years Experience',
-            color: 'text-blue-600',
-        },
-        { value: '10+', label: 'Projects Delivered', color: 'text-green-600' },
-        { value: '1', label: 'AWS Certifications', color: 'text-purple-600' },
-        { value: '20+', label: 'Technologies', color: 'text-orange-600' },
-    ]
+const stats = [
+    {
+        value: `${calculateYearsOfExperience()}+`,
+        label: 'Years Experience',
+        color: 'text-blue-600',
+    },
+    { value: '10+', label: 'Projects Delivered', color: 'text-green-600' },
+    { value: '2', label: 'Certifications (AWS & KCNA)', color: 'text-purple-600' },
+    { value: '25+', label: 'Technologies Used', color: 'text-orange-600' },
+]
 </script>
