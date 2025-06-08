@@ -1,6 +1,6 @@
 <template>
-     <!-- Footer -->
-     <footer class="bg-gray-900 text-white py-12">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Brand Section -->
@@ -69,8 +69,7 @@
 
             <div class="border-t border-gray-800 mt-8 pt-8 text-center">
                 <p class="text-gray-400">
-                    © 2024 John Irungu. Built with Vue.js and Tailwind CSS. All rights
-                    reserved.
+                    © 2024 John Irungu. Built with Vue.js and Tailwind CSS. All rights reserved.
                 </p>
             </div>
         </div>
