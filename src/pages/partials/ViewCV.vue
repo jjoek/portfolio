@@ -15,24 +15,16 @@
             />
         </svg>
     </button>
-
-    <PdfViewer v-if="isCvOpen" :is-open="isCvOpen" :pdf-url="cvUrl" @close="closeCv" />
 </template>
 
 <script setup>
-    import { ref } from 'vue'
-    import PdfViewer from '../../components/PdfViewer.vue'
+    import { usePdfViewer } from '../../stores/pdfViewer'
 
-    const isCvOpen = ref(false)
-    const cvUrl = ref('https://jjoek-cv.s3.eu-central-1.amazonaws.com/Updated+Resume+(CV).pdf')
+    const { showPdf } = usePdfViewer()
+    const cvUrl = 'https://jjoek-cv.s3.eu-central-1.amazonaws.com/Updated+Resume+(CV).pdf'
 
     const showCv = () => {
-        console.log('Opening CV with URL:', cvUrl.value)
-        isCvOpen.value = true
-    }
-
-    const closeCv = () => {
-        console.log('Closing CV viewer')
-        isCvOpen.value = false
+        console.log('Opening CV with URL:', cvUrl)
+        showPdf(cvUrl)
     }
 </script>
