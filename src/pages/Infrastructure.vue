@@ -192,9 +192,7 @@
                     class="animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                     <header class="gradient-header px-6 py-4">
-                        <h2 class="text-xl font-semibold text-white mb-1">
-                            AWS Infrastructure
-                        </h2>
+                        <h2 class="text-xl font-semibold text-white mb-1">AWS Infrastructure</h2>
                         <p class="text-blue-100 text-sm">Cloud Resources and Storage</p>
                     </header>
                     <div class="p-6 space-y-4">
@@ -218,7 +216,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Asset Storage</p>
-                                <p class="font-medium text-gray-900">S3 Bucket </p>
+                                <p class="font-medium text-gray-900">S3 Bucket</p>
                             </div>
                         </div>
                         <div class="flex items-center border-b border-gray-100 pb-4">
@@ -264,7 +262,9 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Cost Management</p>
-                                <p class="font-medium text-gray-900">Cost Explorer & CloudWatch Alerts</p>
+                                <p class="font-medium text-gray-900">
+                                    Cost Explorer & CloudWatch Alerts
+                                </p>
                             </div>
                         </div>
                     </div>
