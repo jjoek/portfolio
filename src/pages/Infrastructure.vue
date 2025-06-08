@@ -269,6 +269,88 @@
                         </div>
                     </div>
                 </article>
+
+                <!-- AI Tools -->
+                <article
+                    class="animate-on-scroll bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                >
+                    <header class="gradient-header px-6 py-4">
+                        <h2 class="text-xl font-semibold text-white mb-1">AI Development Tools</h2>
+                        <p class="text-blue-100 text-sm">Tools that powered the development</p>
+                    </header>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center border-b border-gray-100 pb-4">
+                            <div
+                                class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-purple-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">IDE Enhancement</p>
+                                <p class="font-medium text-gray-900">Cursor (Claude)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center border-b border-gray-100 pb-4">
+                            <div
+                                class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-4"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-indigo-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">UI Bootstrap</p>
+                                <p class="font-medium text-gray-900">V0 by Vercel</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div
+                                class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-4"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-green-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Content Generation</p>
+                                <p class="font-medium text-gray-900">ChatGPT, Gemini, Claude</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
 
             <!-- Last Updated -->
